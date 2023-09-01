@@ -83,7 +83,7 @@
 %-------------------------------------------------------------------------------
 %% Page Layout
 % Configure page margins with geometry
-\geometry{left=1.0cm, top=1cm, right=1.0cm, bottom=1cm, footskip=.5cm}
+\geometry{left=1.0cm, top=1.5cm, right=1.0cm, bottom=1.5cm, footskip=.5cm}
 
 %% Header & Footer
 % Set offset to each header and footer
@@ -157,6 +157,8 @@
 \newcommand*{\headerfirstnamestyle}[1]{{\fontsize{18pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerlastnamestyle}[1]{{\fontsize{18pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{russell} #1}}
+\newcommand*{\headersubTitlestyle}[1]{{\fontsize{12pt}{1em}\headerfont\itshape\color{text} #1}}
+
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
@@ -239,6 +241,8 @@
 % Usage: \position{<position>}
 \newcommand*{\position}[1]{\def\@position{#1}}
 
+\newcommand*{\subTitle}[1]{\def\@subTitle{#1}}
+
 % Defines writer's mobile (optional)
 % Usage: \mobile{<mobile number>}
 \newcommand*{\mobile}[1]{\def\@mobile{#1}}
@@ -251,9 +255,7 @@
 % Usage: \dateofbirth{<date>}
 \newcommand*{\dateofbirth}[1]{\def\@dateofbirth{#1}}
 
-% Defines writer's homepage (optional)
-% Usage: \homepage{<url>}
-\newcommand*{\homepage}[1]{\def\@homepage{#1}}
+
 
 % Defines writer's github (optional)
 % Usage: \github{<github-nick>}
@@ -276,6 +278,10 @@
 % Defines writer's linked-in (optional)
 % Usage: \linkedin{<linked-in-nick>}
 \newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
+
+% Defines writer's homepage (optional)
+% Usage: \homepage{<url>}
+\newcommand*{\homepage}[1]{\def\@homepage{#1}}
 
 % Defines writer's orcid (optional)
 % Usage: \orcid{<orcid-num>}
@@ -377,6 +383,7 @@
 % Header
 \newcommand{\acvHeaderNameDelim}{\space}
 \newcommand{\acvHeaderAfterNameSkip}{.4mm}
+\newcommand{\acvHeaderAfterSubTitleSkip}{.4mm}
 \newcommand{\acvHeaderAfterPositionSkip}{.4mm}
 \newcommand{\acvHeaderAfterAddressSkip}{-.5mm}
 \newcommand{\acvHeaderIconSep}{\space}
@@ -440,6 +447,7 @@
     \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
     \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
     \\[\acvHeaderAfterNameSkip]%
+    \ifthenelse{\isundefined{\@subTitle}}{}{\headersubTitlestyle{\@subTitle\\[\acvHeaderAfterSubTitleSkip]}}%
     \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvHeaderAfterAddressSkip]}}%
     \headersocialstyle{%
@@ -632,6 +640,21 @@
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
+  \end{tabular*}%
+}
+% Define an entry of cv education information
+% Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
+\newcommand*{\cvedentry}[7]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#2#3}
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrytitlestyle{#3} & \entrylocationstyle{#4} \\
+      \entrypositionstyle{#1} & \entrydatestyle{#5} \\
+      \entrypositionstyle{#2} & \entrydatestyle{#6} \\}
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#7}}
   \end{tabular*}%
 }
 
