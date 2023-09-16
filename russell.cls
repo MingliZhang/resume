@@ -156,7 +156,7 @@
 % For fundamental structures
 \newcommand*{\headerfirstnamestyle}[1]{{\fontsize{18pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerlastnamestyle}[1]{{\fontsize{18pt}{1em}\headerfont\color{text} #1}}
-\newcommand*{\headerpositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{russell} #1}}
+\newcommand*{\headerpositionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\color{russell} #1}}
 \newcommand*{\headersubTitlestyle}[1]{{\fontsize{10pt}{1em}\headerfont\itshape\color{russell} #1}}
 
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{12pt}{1em}\headerfont\itshape\color{lighttext} #1}}
@@ -169,11 +169,11 @@
 
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{12pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{graytext} #1}}
-\newcommand*{\entrysubdisstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\slshape\color{graytext} #1}}
+\newcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{darktext} #1}}
+\newcommand*{\entrysubdisstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{darktext} #1}}
 
-\newcommand*{\entrydatestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\slshape\color{graytext} #1}}
-\newcommand*{\entrylocationstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\slshape\color{russell} #1}}
+\newcommand*{\entrydatestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{darktext} #1}}
+\newcommand*{\entrylocationstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{darktext} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\upshape\color{darktext} #1}}
 
 % For elements of subentry
@@ -636,7 +636,7 @@
   \vspace{-1.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 0cm} R{0cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2}, \ \entrylocationstyle{#3} \\
