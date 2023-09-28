@@ -83,7 +83,10 @@
 %-------------------------------------------------------------------------------
 %% Page Layout
 % Configure page margins with geometry
-\geometry{left=0.7in, top=0.7in, right=0.7in, bottom=0.7in, footskip=1cm}
+% \geometry{left=0.7in, top=0.7in, right=0.7in, bottom=0.7in, footskip=1cm}
+
+\geometry{left=0.5in, top=0.5in, right=0.5in, bottom=0.5in, footskip=0cm}
+
 
 %% Header & Footer
 % Set offset to each header and footer
@@ -165,15 +168,15 @@
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
 \newcommand*{\sectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
 \newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
-\newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
+\newcommand*{\paragraphstyle}{\fontsize{10pt}{1em}\bodyfont\color{darktext}}
 
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{12pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{darktext} #1}}
+\newcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\entrysubdisstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{darktext} #1}}
 
-\newcommand*{\entrydatestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{darktext} #1}}
-\newcommand*{\entrylocationstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{darktext} #1}}
+\newcommand*{\entrydatestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\entrylocationstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\upshape\color{darktext} #1}}
 
 % For elements of subentry
@@ -191,7 +194,7 @@
 
 % For elements of skill
 \newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{darktext} #1}}
+\newcommand*{\skillsetstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{darktext} #1}}
 
 % For elements of the cover letter
 \newcommand*{\lettersectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
@@ -395,7 +398,7 @@
 
 % Others
 \newcommand{\acvSectionTopSkip}{-.5mm}
-\newcommand{\acvSectionContentTopSkip}{0mm}
+\newcommand{\acvSectionContentTopSkip}{0.5mm}
 
 
 %-------------------------------------------------------------------------------
@@ -616,11 +619,11 @@
 % Define a paragraph for CV
 \newenvironment{cvparagraph}{%
   \vspace{\acvSectionContentTopSkip}
-  \vspace{-3mm}
-  \paragraphstyle
+  \vspace{-1mm}
+  \hspace{4mm}\paragraphstyle
 }{%
   \par
-  \vspace{2mm}
+  \vspace{1mm}
 }
 
 % Define an environment for cventry
@@ -636,11 +639,10 @@
   \vspace{-1.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 0cm} R{0cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 3.5cm} R{3.5cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-      {\entrytitlestyle{#2}, \ \entrylocationstyle{#3} \\
-      \entrypositionstyle{#1} | \entrydatestyle{#4}  \\
+      {\entrytitlestyle{#2} | \entrypositionstyle{#1} | \entrydatestyle{#4}  & \entrylocationstyle{#3} \\
       \entrysubdisstyle{#5} \\}
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#6}}
   \end{tabular*}%
@@ -648,15 +650,15 @@
 % Define an entry of cv education information
 % Usage: \cvedentry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand*{\cvedentry}[7]{%
-  \vspace{-2.0mm}
+  \vspace{-1.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth } R{0cm}}
       \entrytitlestyle{#1} \\
-      \entrypositionstyle{#2}, \ \entrydatestyle{#3} \\
+      \hspace{4mm}\entrypositionstyle{#2} | \ \entrydatestyle{#3} \\
       \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}} \\
-      \entrypositionstyle{#5}, \ \entrydatestyle{#6} \\
-    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#7}}
+      \hspace{4mm}\entrypositionstyle{#5} | \ \entrydatestyle{#6} \\
+      \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#7}}
   \end{tabular*}%
 }
 
@@ -705,7 +707,7 @@
 % Define an environment for cvskill
 \newenvironment{cvskills}{%
   \vspace{\acvSectionContentTopSkip}
-  % \vspace{-2.0mm}
+  \vspace{-1.0mm}
   \begin{center}
     \setlength\tabcolsep{1ex}
     \setlength{\extrarowheight}{0pt}
@@ -722,9 +724,9 @@
 
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvitems}{%
-  \vspace{-4.0mm}
+  \vspace{-3.5mm}
   \begin{justify}
-  \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
+  \begin{itemize}[leftmargin=5ex, nosep, itemsep=0.6mm]
     \setlength{\parskip}{0pt}
     \renewcommand{\labelitemi}{\bullet}
 }{%
