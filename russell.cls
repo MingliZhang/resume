@@ -85,7 +85,7 @@
 % Configure page margins with geometry
 % \geometry{left=0.7in, top=0.7in, right=0.7in, bottom=0.7in, footskip=1cm}
 
-\geometry{left=0.5in, top=0.5in, right=0.5in, bottom=0.5in, footskip=0cm}
+\geometry{left=0.6in, top=0.6in, right=0.5in, bottom=0.5in, footskip=0cm}
 
 
 %% Header & Footer
