@@ -31,19 +31,19 @@ San Jose, CA | IT Enterprise Solution AI Operations Algorithm Team
 - Deployed across 140+ sites, expanding to 1,200+
 - Three core CV algorithms:
   - Body Detection: utalized fine tuned yolo to perform humand body detection, achieved 98% accuracy as well as subsecond latency with batching.
-  - Dining Detction: YOLO-Pose with positional calculations for intelligent key frame extraction
-  - Stage 3: Self-deployed Qwen3-VL-MoE vision model to classify unauthorized behaviors (eating, drinking, etc.)
-  - Full 10-second clip analyzed in under 5 seconds
-- Distributed two-server architecture: one for orchestration (TOS video fetching, frame calculations, alarm dispatch), one for GPU inference — eliminates I/O bottlenecks on GPU server
+    - involves efficent image decoding and transmition, model fallback to ensure avaliability, and model fine tuning to better fit the model to our usecase.
+  - Dining Detction: YOLO-Pose with positional calculations for intelligent key frame extraction, and then feeds the key frames to self-deployed Qwen3-VL MoE model to detect unauthorized behaviors (eating, driniking, etc.). Achieved an accuracy of 89%.
+    - involves efficent video decoding, lot of io optimizations, model fallback and prompt engineerfing for llm to better understand the busniess objective as well as the relationships between the frames being fed to it.
+    - Each 10 seconds clip takes less than 4 seconds to fully process.
+  - Person counting: uses yolo and tracking algorithms such as deepsort to track how many people entered the server room and how many people left the server room in order to calculated the total number of people inside the server room.
+    - suffered from error accumulation over time, and the birdeye angel of the survalence camera (right on top of the door and pointing straight down). hurts the accuracy of the detection models, tried using motion detection and all sorts of detection methods/algorithms but can only acchieve an accuracy of 80%. Compounding with the error accumulation, turned more to a suggestion algorithm.
+- Distributed two-server architecture: one for orchestration (TOS video/image fetching, frame calculations, alarm dispatch), one for GPU inference — minimizing I/O bottlenecks on GPU server for higher gpu utalization.
 - Custom FastAPI inference server: multi-threaded HTTP workers + batched GPU workers
   - Doubled QPS capacity
   - Improved GPU utilization by 60%
   - Middleware for event logging and distributed tracing integrated into ByteDance observability systems
   - Service availablity reached 99.9999%
-
-
-
-
+F
 
 
 ### Project 3: AI Copilot for Network Management Product
@@ -132,10 +132,4 @@ North Carolina | Internal platform for provisioning/customizing live demo enviro
 
 ---
 
-## Things to Revisit / Open Questions
 
-- [ ] Copilot: any accuracy metrics for intent classification?
-- [ ] Copilot: any query volume numbers?
-- [ ] RCA: specific network issue types covered (wireless, AP, AC — anything else?)
-- [ ] Text-to-SQL v2: accuracy vs v1?
-- [ ] ChampionPDI freelance project — include or keep commented out?
