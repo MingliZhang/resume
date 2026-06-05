@@ -15,22 +15,27 @@
     {IT Enterprise Solution AI Operations Algorithm Team}
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Built a Text-to-SQL service using \textbf{LangChain} and \textbf{RAG} to automate natural language-to-SQL queries, which enhanced our own network monitoring service, saving \textbf{100+ human hours monthly} across all offices.}
-        \item {Developed and fine-tuned \textbf{computer vision} models such as \textbf{YOLO}, \textbf{DeepSort}, and \textbf{Mmpos} to automate server room monitoring and alert service across \textbf{1,000+} global sites, saving \textbf{2000+} man hours required each year.}
-        \item {Implemented a network RCA AI chatbot for a commercialized product based on \textbf{Swarm}, enabling non-technical users to diagnose network issues, which \textbf{halved the workload} of oncall technicians.}
-        \item {Developed backend services using \textbf{FastAPI} and \textbf{gRPC} to expose machine learning models and support client interaction. Implemented \textbf{authentication}, \textbf{managed deployment}, and ensured service health. Led real-time output \textbf{streaming} to enhance user experience and provide instant feedback.
-        }
-        \item {Patented an algorithmic approach and co-owned 3 other patents involving machine learning solutions for real-world problems.}
-        \item {Led tech shares to present lessons learned from each project, including models, fine tuning, agent frameworks, and non-ML solutions, which fostered team knowledge and imporved efficiency.}
-        \item {Collaborate with clients, product managers, and team members to clarify requirements, manage expectations, and deliver machine learning solutions on time through clear communication.}
+        \item {Fine-tuned LLMs with \textbf{LLaMA-Factory} on self-generated network fault data using \textbf{SFT and LoRA}, improving diagnostic report quality and accelerating RCA workflows for operations teams.}
+        % \item {Built a fault data collection and processing pipeline in \textbf{Golang}, generating high-quality domain-specific training datasets that directly improved fine-tuned model accuracy on real-world network scenarios.}
+        \item {Architected a real-time server room surveillance system using computer vision, deployed across \textbf{140+ sites} and expanding to \textbf{1,200+}, that automatically detects unauthorized human presence and behavior — eliminating the need for manual monitoring.}
+        \item {Built a three-stage CV pipeline: \textbf{YOLO}-based body detection (\textbf{<1s}), \textbf{YOLO-Pose} with positional calculations for intelligent key frame extraction, and a self-deployed \textbf{Qwen3-VL-MoE} vision model to classify unauthorized behaviors (e.g. eating, drinking) — analyzing 10-second clips in under \textbf{5 seconds}.}
+        % \item {Designed a distributed two-server architecture separating orchestration (TOS video fetching, frame calculations, alarm dispatch) from GPU inference, keeping the pipeline near real-time by eliminating I/O bottlenecks on the GPU server.}
+        \item {Built a custom \textbf{FastAPI}-based inference server with multi-threaded HTTP workers and batched GPU workers, doubling QPS capacity and \textbf{improving GPU utilization by 60\%}, with middleware for event logging and distributed tracing integrated into ByteDance’s observability systems.}
+        \item {Built a Text-to-SQL service with \textbf{LangChain} and \textbf{RAG} that enables operators to query network data in plain language, saving \textbf{100+ human hours monthly} across all offices.}
+        % \item {Developed a network RCA AI chatbot using \textbf{Agent-SDK} for a commercialized product, enabling non-technical users to independently diagnose network issues through conversational AI.}
+        \item {Patented an algorithmic approach and co-authored 3 additional patents on machine learning solutions for real-world infrastructure problems.}
+        % --- Project 2: AI Copilot ---
+        % \item {Built an AI copilot for a commercialized network management product serving \textbf{10+ enterprise tenants}, with an LLM-based intent router using \textbf{few-shot prompting} and extensive prompt engineering to dispatch queries across RCA, diagnostics, and analytics tools — achieving reliable intent classification without fine-tuning by leveraging general-purpose LLMs.}
+        % \item {Iterated the RCA system through three architectural stages: rule-based + LLM baseline, a \textbf{parallel ensemble} of three independent agents (rule-based, fine-tuned LLM, Agent-SDK) with LLM-merged outputs, and finally a \textbf{graph-based agent pipeline} built on \textbf{Eino} (ByteDance's Golang-native LangGraph equivalent) — progressively improving root cause identification and natural-language fault explanation across wireless, AP, and AC domains.}
+        % \item {Designed the copilot's Text-to-SQL pipeline by applying lessons from a prior implementation — choosing a controlled pipeline architecture over agents for faster delivery and predictability, covering wireless terminal, AP, and AC metric queries; currently extending with self-reflection agent capabilities using modern LLM frameworks.}
       \end{cvitems}
     }
   % \cventry
-  %   {Lead Software Engineer (Part Time)} % Job title
+  %   {Lead Software Developer - Freelance} % Job title
   %   {ChampionPDI} % Organisation
   %   {Jan 2023 - Sep 2023} % Date(s)
-  %   {North Carolina, USA} % Location
-  %   {Created and launched a powerful sales representative management platform for Cutco.}
+  %   {North Carolina (hybrid), USA} % Location
+  %   {Created a powerful sales representative management platform for Cutco.}
   %   {
   %     \begin{cvitems} % Description(s) of tasks/responsibilities
   %       \item {Led a team of 6 developers to launch a sales representative management platform that gained 200+ users in the first week.}
@@ -45,17 +50,16 @@
     {Software Engineer (Part Time)} % Job title
     {Cymantix} % Organisation
     {Oct 2021 - Feb 2023} % Date(s)
-    {North Carolina, USA} % Location
-    {A SaaS tech startup that integrated machine learning with data analytics and information retrieval.}
+    {North Carolina (hybrid), USA} % Location
+    {A tech startup integrating machine learning with data analytics and information retrieval.}
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Identified and resolved \textbf{communication issues} proactively between clients and engineers, which boosted the company's reputation and gained 3 additional clients.}
-        \item {Investigated replacing K-Means with Hierarchical clustering on the \textbf{Flask (Python)} backend, which reduced computation and user wait time by 10\%-60\%.}
-        \item {Optimized real-time news analysis using \textbf{multithreading}, \textbf{NodeJS} and \textbf{Socket.io}, which decreased user wait time by 90\%.}
-        \item {Created a full-stack machine-learning-driven data analytics web platform in a global team of 5 engineers that secured seed-round funding.}
-        \item {Refactored codebase to \textbf{Next.js} and added animations using \textbf{D3.js}, which reduced 20\% code redundancy and provided a smoother user experience.}
-        \item {Integrated \textbf{Microsoft Azure} into our platform, which provided login options and secure data storage from Microsoft's cloud. Resulted in a cost-effective transition for users and gained 2 non-profit organizations as clients within 1 week.}
-        \item {Automated PubMed data update pipeline using \textbf{Bash script}, \textbf{Python}, and \textbf{CronJob}, which reduced manual labor and gained 2 clients that required the most up to date data.}
+        \item {Collaborated with 5 developers to build a \textbf{machine-learning-driven platform} integrating WebRTC video conferencing, information retrieval, and a core identity API — contributing to the product that secured seed-round funding.}
+        \item {Improved clustering quality by replacing \textbf{K-Means} with \textbf{Hierarchical Clustering}, reducing user wait time by \textbf{10\%--60\%} depending on dataset size.}
+        \item {Optimized real-time news analysis using \textbf{multithreading}, \textbf{Node.js}, and \textbf{Socket.io}, cutting user wait time by \textbf{90\%}.}
+        % \item {Refactored the codebase to \textbf{Next.js} and enhanced visualizations with \textbf{D3.js}, reducing code redundancy by \textbf{20\%} and delivering a significantly smoother user experience.}
+        \item {Integrated \textbf{Microsoft Azure} for authentication and cloud storage, enabling a cost-effective platform transition that brought in \textbf{2 non-profit clients within 1 week}.}
+        % \item {Automated the data update pipeline using \textbf{Bash}, \textbf{Python}, and \textbf{CronJob}, eliminating manual labor and ensuring data freshness for all users.}
       \end{cvitems}
     }
 
@@ -67,10 +71,9 @@
     {Worked on IBM's internal platform that provisions and customizes live demo environments.}
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Co-founded an automated validation service using \textbf{SailsJS} that streamlined database maintenance and saved the team \$14,000 annually by eliminating headcounts for manual tasks.}
-        \item {Enhanced user experience based on user feedback using \textbf{NextJS}, which expanded the monthly user base to over 12,000+.}
-        \item {Streamlined administrative content processes, achieved faster content updates, and reduced redeployments by over 20 per week.}
-        % \item {Collaborated effectively with cross-functional team members, including product managers, fellow developers, mentors, and UI/UX design engineers.}
+        \item {Enhanced the experience of \textbf{12,000+ IBMers monthly} using \textbf{Next.js} by implementing intuitive improvements driven directly by user feedback.}
+        \item {Built an automated validation service using \textbf{Sails.js} that streamlined database maintenance and saved the team \textbf{\$14,000 annually} by eliminating manual tasks.}
+        \item {Streamlined administrative content workflows, enabling faster updates and reducing developer redeployments by \textbf{20+ per week}.}
       \end{cvitems}
     }
 
