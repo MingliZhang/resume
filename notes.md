@@ -18,19 +18,20 @@ San Jose, CA | IT Enterprise Solution AI Operations Algorithm Team
 
 ---
 
-### Project 1: LLM Fine-Tuning & Operations AI Tools
+### Project 1: Text2SQL
+- Built with LangChain and RAG
+- Enables operators to query data in plain language and automatically building of dashboards for easier visualization.
+- Saved 100+ human hours monthly across all offices
+- Achieved an accracy of 90+% with known limitation like complex table joins and hard to handel database schema ambiguiety.
 
-**LLM Fine-Tuning**
-- Used LLaMA-Factory with SFT and LoRA on self-generated network fault data
-- Data was generated internally; improved diagnostic report quality and accelerated RCA workflows for ops teams
-- Built the fault data collection and processing pipeline in Golang to generate domain-specific training datasets
 
+### Project 2: Computer Vision — Server Room Surveillance
 **Computer Vision — Server Room Surveillance**
 - Real-time surveillance system detecting unauthorized human presence and behavior
 - Deployed across 140+ sites, expanding to 1,200+
-- Three-stage CV pipeline:
-  - Stage 1: YOLO-based body detection (<1s)
-  - Stage 2: YOLO-Pose with positional calculations for intelligent key frame extraction
+- Three core CV algorithms:
+  - Body Detection: utalized fine tuned yolo to perform humand body detection, achieved 98% accuracy as well as subsecond latency with batching.
+  - Dining Detction: YOLO-Pose with positional calculations for intelligent key frame extraction
   - Stage 3: Self-deployed Qwen3-VL-MoE vision model to classify unauthorized behaviors (eating, drinking, etc.)
   - Full 10-second clip analyzed in under 5 seconds
 - Distributed two-server architecture: one for orchestration (TOS video fetching, frame calculations, alarm dispatch), one for GPU inference — eliminates I/O bottlenecks on GPU server
@@ -38,23 +39,17 @@ San Jose, CA | IT Enterprise Solution AI Operations Algorithm Team
   - Doubled QPS capacity
   - Improved GPU utilization by 60%
   - Middleware for event logging and distributed tracing integrated into ByteDance observability systems
+  - Service availablity reached 99.9999%
 
-**Text-to-SQL (v1)**
-- Built with LangChain and RAG
-- Enables operators to query network data in plain language
-- Saved 100+ human hours monthly across all offices
-- Worked ~90% of the time; known limitation: complex table joins
 
-**Patents**
-- Patented one algorithmic approach independently
-- Co-authored 3 additional patents on ML solutions for real-world infrastructure problems
 
----
 
-### Project 2: AI Copilot for Network Management Product
+
+
+### Project 3: AI Copilot for Network Management Product
 
 A customer-facing AI copilot for a commercialized network management product.
-Serving ~10 enterprise tenants (each with a few sites). These are network service providers.
+Serving 10+ enterprise tenants (each with a few sites). These are network service providers.
 Tools are used when the network is unstable — diagnostic/support tooling, not daily-use.
 
 **Intent Identification**
@@ -80,7 +75,7 @@ Three stages of evolution:
   - Currently able to identify most network issue root causes and explain them to users
 
 **Text-to-SQL (v2 — for Copilot)**
-- Built with lessons learned from v1 (LangChain, table join limitations)
+- Built with lessons learned from previous text2sql project (LangChain, table join limitations)
 - Chose a **pipeline architecture** over agents intentionally:
   - Faster to develop and deliver to customers
   - More predictable and controllable behavior
@@ -88,6 +83,20 @@ Three stages of evolution:
 - Covers: wireless terminal analysis, AP analysis, AC analysis, and more network metrics
 - Currently transitioning to an agent-based approach for self-reflection/error-correction capability
   - Motivation: modern LLMs and agent frameworks are significantly more capable than 2 years ago
+
+
+### Project 4: LLM Fine-Tuning & Operations AI Tools
+
+**LLM Fine-Tuning**
+- Used LLaMA-Factory with SFT and LoRA on self-generated network fault data
+- Data was generated internally; improved diagnostic report quality and accelerated RCA workflows for ops teams
+- Built the fault data collection and processing pipeline in Golang to generate domain-specific training datasets
+
+## **Patents**
+- Patented one algorithmic approach independently
+- Co-authored 3 additional patents on ML solutions for real-world infrastructure problems
+
+---
 
 ---
 
